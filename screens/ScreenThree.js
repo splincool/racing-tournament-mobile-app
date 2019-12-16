@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Text, View, StyleSheet, Image, ScrollView  } from 'react-native';
-
+import Champ from '../components/Champ'
 export default class FetchExample extends React.Component {
 
   constructor(props){
@@ -40,25 +40,11 @@ export default class FetchExample extends React.Component {
 
     return(
       <ScrollView>
-
-      <View style={styles.container}>
-        <View>
-          {this.state.dataSource.map((item,i) => {
-              return (
-                <View key={i}>
-                  <Image
-                    style={{
-                      resizeMode: 'contain',
-                      height: 100}}
-                    source = {{uri: item.championship.info.champImage || "https://fakeimg.pl/250x100/"}}
-                     />
-                  <Text>{item.championship.info.name}</Text>
-                </View>
-              )
-            })
-          }
+        <View style={styles.container}>
+          <View>
+            {this.state.dataSource.map((item,i) => <Champ key={i} item={item}/>)}
+          </View>
         </View>
-      </View>
       </ScrollView>
     );
   }
