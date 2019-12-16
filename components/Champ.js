@@ -6,7 +6,7 @@ const Champ = ({item}) => {
   if (item.championship.info.champImage) {
     image = <Image
               style={{resizeMode: 'contain', height: 100}}
-              source = {{uri: item.championship.info.champImage || "https://fakeimg.pl/250x100/"}}
+              source = {{uri: item.championship.info.champImage}}
             />
   }
   return (
