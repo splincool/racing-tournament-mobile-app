@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, StyleSheet, Text, Button, ListView } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 const ScreenOne = () => {
 
