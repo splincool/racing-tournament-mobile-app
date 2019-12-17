@@ -57,7 +57,10 @@ export default class FetchExample extends React.Component {
       <SafeAreaView style={styles.area}>
         <ScrollView 
           refreshControl={
-            <RefreshControl refreshing={this.state.refreshing} onRefresh={() => this.getData()} />
+            <RefreshControl 
+              refreshing={this.state.refreshing} 
+              onRefresh={() => this.getData()} 
+            />
           }
         >
           <View style={styles.container}>
