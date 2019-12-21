@@ -13,10 +13,6 @@ const TabIcon = (props) => (
 
 export default class ScreenTwo extends React.Component {
 
-//   static navigationOptions = {
-//     tabBarIcon: TabIcon
-//   };
-
   render() {
     return (
       <View style={styles.container}>
