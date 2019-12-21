@@ -3,13 +3,13 @@ import { View, StyleSheet, Text } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
 
-const TabIcon = (props) => (
-  <Ionicons
-    name={'md-apps'}
-    size={35}
-    color={props.focused ? 'grey' : 'darkgrey'}
-  />
-)
+// const TabIcon = (props) => (
+//   <Ionicons
+//     name={'md-apps'}
+//     size={35}
+//     color={props.focused ? 'grey' : 'darkgrey'}
+//   />
+// )
 
 export default class ScreenTwo extends React.Component {
 
