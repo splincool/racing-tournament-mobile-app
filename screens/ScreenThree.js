@@ -5,7 +5,7 @@ import {
   StyleSheet, 
   ScrollView, 
   SafeAreaView,
-  RefreshControl 
+  RefreshControl
 } from 'react-native';
 import Constants from 'expo-constants';
 import Champ from '../components/Champ'
@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
-  },
+    justifyContent: 'center',
+  }
 });
