@@ -4,9 +4,7 @@ import {
   View, 
   StyleSheet, 
   ScrollView, 
-  FlatList,
   SafeAreaView,
-  Button,
   RefreshControl 
 } from 'react-native';
 import Constants from 'expo-constants';
