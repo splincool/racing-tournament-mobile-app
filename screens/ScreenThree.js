@@ -12,7 +12,7 @@ import Champ from '../components/Champ'
 export default class FetchExample extends React.Component {
 
   constructor(props){
-    super(props);
+    super(props)
     this.state ={ isLoading: true, refreshing: false}
   }
 
