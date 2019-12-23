@@ -8,7 +8,7 @@ import ScreenTwo from '../screens/ScreenTwo';
 import ScreenThree from '../screens/ScreenThree';
 
 const BottomTabNavigator = createBottomTabNavigator({
-  Champs: ScreenThree,
+  Championships: ScreenThree,
   One: ScreenOne,
   Two: ScreenTwo,
 }, 
@@ -22,7 +22,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         iconName = `ios-information-circle${focused ? '' : '-outline'}`;
       } else if (routeName === 'Two') {
         iconName = `ios-options`;
-      } else if (routeName === 'Champs') {
+      } else if (routeName === 'Championships') {
         iconName = `md-home`;
       }
 
