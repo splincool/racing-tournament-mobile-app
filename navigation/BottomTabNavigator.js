@@ -5,10 +5,10 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import ScreenOne from '../screens/ScreenOne';
 import ScreenTwo from '../screens/ScreenTwo';
-import ScreenThree from '../screens/ScreenThree';
+import ChampionshipsScreen from '../screens/ChampionshipsScreen';
 
 const BottomTabNavigator = createBottomTabNavigator({
-  Championships: ScreenThree,
+  Championships: {screen: ChampionshipsScreen},
   One: ScreenOne,
   Two: ScreenTwo,
 }, 

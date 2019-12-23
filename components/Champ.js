@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, Image, StyleSheet, Button} from 'react-native'
 
-const Champ = ({item}) => {
+const Champ = ({item, onOpen}) => {
   let image
   if (item.championship.info.champImage) {
     image = <Image
@@ -9,11 +9,12 @@ const Champ = ({item}) => {
               source = {{uri: item.championship.info.champImage}}
             />
   }
+
   return (
     <View style={styles.champ}>
       {image}
       <Text>{item.championship.info.name}</Text>
-      <Button title="Open"/>
+      <Button title="Open" onPress={() => onOpen(item)}/>
     </View>
   )
 }

@@ -41,6 +41,16 @@ export default class FetchExample extends React.Component {
       });
   }
 
+  openChampHandler(champ) {
+    
+    // console.log(this.props.navigation)
+    // props.navigation.navigate('Post', {
+    //   postId: post.id,
+    //   date: post.date,
+    //   booked: post.booked
+    // })
+  }
+
   render(){
 
     if(this.state.isLoading){
@@ -63,7 +73,8 @@ export default class FetchExample extends React.Component {
         >
           <View style={styles.container}>
             <View>
-              {this.state.dataSource.map((item,i) => <Champ key={i} item={item}/>)}
+              {this.state.dataSource.map((item,i) => 
+                <Champ key={i} item={item} onOpen={this.openChampHandler}/>)}
             </View>
           </View>
         </ScrollView>
