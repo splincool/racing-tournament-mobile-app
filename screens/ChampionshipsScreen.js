@@ -11,9 +11,14 @@ import Constants from 'expo-constants';
 import Champ from '../components/Champ'
 export default class FetchExample extends React.Component {
 
+  static navigationOptions = {
+    title: 'Championships',
+  };
+
   constructor(props){
     super(props)
     this.state ={ isLoading: true, refreshing: false}
+    this.openChampHandler = this.openChampHandler.bind(this);
   }
 
   componentDidMount(){
@@ -49,6 +54,9 @@ export default class FetchExample extends React.Component {
     //   date: post.date,
     //   booked: post.booked
     // })
+    const {navigate} = this.props.navigation
+    // console.log(navigate)
+    navigate('One')
   }
 
   render(){
@@ -85,8 +93,7 @@ export default class FetchExample extends React.Component {
 
 const styles = StyleSheet.create({
   area: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight,
+    flex: 1
   },
   container: {
     flex: 1,

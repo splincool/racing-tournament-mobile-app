@@ -1,8 +1,8 @@
 import React from 'react';
-import AppNavigator from './navigation/AppNavigator'
+import { AppNavigation } from './navigation/AppNavigation'
 
 export default function App() {
   return (
-    <AppNavigator /> 
+    <AppNavigation />
   );
 }
