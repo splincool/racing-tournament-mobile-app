@@ -8,7 +8,7 @@ import {
   RefreshControl
 } from 'react-native';
 import Constants from 'expo-constants';
-import Champ from '../components/Champ'
+import {Champ} from '../components/Champ'
 export default class FetchExample extends React.Component {
 
   static navigationOptions = {

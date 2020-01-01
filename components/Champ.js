@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, Text, Image, StyleSheet, Button} from 'react-native'
 
-const Champ = ({item, onOpen}) => {
+export const Champ = ({item, onOpen}) => {
   let image
   if (item.championship.info.champImage) {
     image = <Image
@@ -11,33 +11,41 @@ const Champ = ({item, onOpen}) => {
   }
 
   return (
-    <View style={styles.champ}>
-      {image}
-      <Text>{item.championship.info.name}</Text>
-      <Button title="Open" onPress={() => onOpen(item)}/>
+    <View style={styles.champContainer}>
+      <View style={styles.champ}>
+        <View>
+          {image}
+        </View>
+        <View style={styles.champInfo}>
+          <Text>{item.championship.info.name}</Text>
+          <Button title="Open" onPress={() => onOpen(item)}/>
+        </View>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  champ: {
+  champContainer: {
     flex: 1,
-    shadowColor: "#000",
-    shadowOffset: {
-	    width: 0,
-	    height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    backgroundColor : "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 15
+  },
+  champ: {
+    backgroundColor: "#fff",
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    borderRadius: 10,
+    overflow: "hidden",
     marginTop: 10,
-    width: 300
+    width: '100%'
+  },
+  champInfo: {
+    padding: 10
   },
   image: {
-    resizeMode: 'cover',
-    height: 150
-  }
+    width: '100%',
+    aspectRatio: 2
+  },
 });
-
-export default Champ
