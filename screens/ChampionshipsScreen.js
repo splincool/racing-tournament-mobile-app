@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import {Champ} from '../components/Champ'
-export default class FetchExample extends React.Component {
+export default class ChampionshipsScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Championships',
