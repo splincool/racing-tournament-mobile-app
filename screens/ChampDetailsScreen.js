@@ -1,12 +1,20 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 
 export const ChampDetailsScreen = ({ navigation }) => {
-  // const champId = navigation.getParam('champId')
+  const champName = navigation.getParam('champName')
 
   return (
-    <View>
-      <Text>Champ Details Screen</Text>
+    <View style={styles.container}>
+      <Text>Champ Details Screen: {champName}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

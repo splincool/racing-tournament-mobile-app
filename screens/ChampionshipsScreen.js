@@ -47,16 +47,9 @@ export default class FetchExample extends React.Component {
   }
 
   openChampHandler(champ) {
-    
-    // console.log(this.props.navigation)
-    // props.navigation.navigate('Post', {
-    //   postId: post.id,
-    //   date: post.date,
-    //   booked: post.booked
-    // })
-    const {navigate} = this.props.navigation
-    // console.log(navigate)
-    navigate('One')
+    this.props.navigation.navigate('Championship', {
+      champName: champ.championship.info.name
+    })
   }
 
   render(){
