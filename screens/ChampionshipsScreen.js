@@ -31,10 +31,15 @@ export default class ChampionshipsScreen extends React.Component {
       .then((response) => response.json())
       .then((responseJson) => {
 
+        let dataSource = responseJson.filter(item => {
+          if (item.championship && item.championship.status) {
+            return item.championship.status === 'Active'
+          }
+        })
         this.setState({
           isLoading: false,
           refreshing: false,
-          dataSource: responseJson,
+          dataSource,
         }, function(){
 
         });

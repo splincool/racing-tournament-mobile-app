@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet, Button} from 'react-native'
 
 export const Champ = ({item, onOpen}) => {
   let image
-  if (item.championship.info.champImage) {
+  if (item && item.championship && item.championship.info.champImage) {
     image = <Image
               style={styles.image}
               source = {{uri: item.championship.info.champImage}}
@@ -17,7 +17,7 @@ export const Champ = ({item, onOpen}) => {
           {image}
         </View>
         <View style={styles.champInfo}>
-          <Text>{item.championship.info.name}</Text>
+          <Text>{item.championship && item.championship.info.name}</Text>
           <Button title="Open" onPress={() => onOpen(item)}/>
         </View>
       </View>
