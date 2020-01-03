@@ -5,11 +5,15 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import ScreenOne from '../screens/ScreenOne';
 import ScreenTwo from '../screens/ScreenTwo';
 import ChampionshipsScreen from '../screens/ChampionshipsScreen';
+import {MenuScreen} from '../screens/MenuScreen';
+import {LeaderboardScreen} from '../screens/LeaderboardScreen';
+import {ProfileScreen} from '../screens/ProfileScreen';
 
 const BottomTabNavigator = createBottomTabNavigator({
+  Menu: MenuScreen,
   Championships: {screen: ChampionshipsScreen},
-  One: ScreenOne,
-  Two: ScreenTwo,
+  Leaderboard: LeaderboardScreen,
+  Profile: ProfileScreen,
 }, 
 {
   defaultNavigationOptions: ({ navigation }) => ({
@@ -17,12 +21,14 @@ const BottomTabNavigator = createBottomTabNavigator({
       const { routeName } = navigation.state;
       let IconComponent = Ionicons;
       let iconName;
-      if (routeName === 'One') {
-        iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-      } else if (routeName === 'Two') {
-        iconName = `ios-options`;
+      if (routeName === 'Menu') {
+        iconName = `ios-menu`;
       } else if (routeName === 'Championships') {
-        iconName = `md-home`;
+        iconName = `ios-trophy`;
+      } else if (routeName === 'Leaderboard') {
+        iconName = `ios-podium`;
+      } else if (routeName === 'Profile') {
+        iconName = `ios-contact`;
       }
 
       // You can return any component that you like here!
