@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { 
   ActivityIndicator,
   View, 
@@ -9,24 +9,22 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import {Champ} from '../components/Champ'
-export default class ChampionshipsScreen extends React.Component {
+export const ChampionshipsScreen = (props) => {
 
-  static navigationOptions = {
-    title: 'Championships',
-  };
+  // static navigationOptions = {
+  //   title: 'Championships',
+  // };
 
-  constructor(props){
-    super(props)
-    this.state ={ isLoading: true, refreshing: false}
-    this.openChampHandler = this.openChampHandler.bind(this);
-  }
+  const [isLoading, setIsLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
+  const [champsData, setChampData] = useState()
 
-  componentDidMount(){
-    this.getData()
-  }
+  useEffect(() =>{
+    getData()
+  },[])
 
-  async getData() {
-    this.setState({refreshing: true})
+  const getData = () => {
+    setRefreshing(true)
     return fetch('https://us-central1-racing-tournament.cloudfunctions.net/getChampionships')
       .then((response) => response.json())
       .then((responseJson) => {
@@ -36,57 +34,50 @@ export default class ChampionshipsScreen extends React.Component {
             return item.championship.status === 'Active'
           }
         })
-        this.setState({
-          isLoading: false,
-          refreshing: false,
-          dataSource,
-        }, function(){
+        setIsLoading(false)
+        setRefreshing(false)
+        setChampData(dataSource)
 
-        });
         console.log('updated')
-
       })
       .catch((error) =>{
         console.error(error);
       });
   }
 
-  openChampHandler(champ) {
-    this.props.navigation.navigate('Championship', {
+  const openChampHandler = (champ) => {
+    props.navigation.navigate('Championship', {
       champName: champ.championship.info.name
     })
   }
 
-  render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
+  if(isLoading){
     return(
-      <SafeAreaView style={styles.area}>
-        <ScrollView 
-          refreshControl={
-            <RefreshControl 
-              refreshing={this.state.refreshing} 
-              onRefresh={() => this.getData()} 
-            />
-          }
-        >
-          <View style={styles.container}>
-            <View>
-              {this.state.dataSource.map((item,i) => 
-                <Champ key={i} item={item} onOpen={this.openChampHandler}/>)}
-            </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    );
+      <View style={{flex: 1, padding: 20}}>
+        <ActivityIndicator/>
+      </View>
+    )
   }
+
+  return(
+    <SafeAreaView style={styles.area}>
+      <ScrollView 
+        refreshControl={
+          <RefreshControl 
+            refreshing={refreshing} 
+            onRefresh={() => getData()} 
+          />
+        }
+      >
+        <View style={styles.container}>
+          <View>
+            {champsData && champsData.map((item,i) => 
+              <Champ key={i} item={item} onOpen={openChampHandler}/>)}
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({

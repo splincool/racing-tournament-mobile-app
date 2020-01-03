@@ -2,7 +2,6 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator, createSwitchNavigator} from 'react-navigation-stack';
 import BottomTabNavigator from './BottomTabNavigator'
 
-import ChampionshipsScreen from '../screens/ChampionshipsScreen';
 import {ChampDetailsScreen} from '../screens/ChampDetailsScreen';
 
 

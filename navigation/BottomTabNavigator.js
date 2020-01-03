@@ -2,9 +2,7 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import ScreenOne from '../screens/ScreenOne';
-import ScreenTwo from '../screens/ScreenTwo';
-import ChampionshipsScreen from '../screens/ChampionshipsScreen';
+import {ChampionshipsScreen} from '../screens/ChampionshipsScreen';
 import {MenuScreen} from '../screens/MenuScreen';
 import {LeaderboardScreen} from '../screens/LeaderboardScreen';
 import {ProfileScreen} from '../screens/ProfileScreen';
